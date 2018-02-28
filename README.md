@@ -21,7 +21,7 @@ Add these to your app's build.gradle
 <pre>
 <code>
 	dependencies {
-	        compile 'com.github.alpbak:BoxedVerticalSeekBar:1b377fd8db'
+	        compile 'com.github.humbertokramm:BoxedVerticalSeekBar:6589d5c'
 	}
 
 
