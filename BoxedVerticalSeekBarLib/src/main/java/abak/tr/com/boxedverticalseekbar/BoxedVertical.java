@@ -346,6 +346,21 @@ public class BoxedVertical extends View{
 
         invalidate();
     }
+	
+	private void updateProgress3(int progress) {
+        mProgressSweep = scrHeight - progress * scrHeight / mMax;
+        mPoints = progress;
+
+        mPoints = (mPoints > scrHeight) ? scrHeight : mPoints;
+        mPoints = (mPoints < 0) ? 0 : mPoints;
+
+        if (mOnValuesChangeListener != null) {
+            mOnValuesChangeListener
+                    .onPointsChanged(this, mPoints);
+        }
+
+        invalidate();
+    }
 
     public interface OnValuesChangeListener {
         /**
@@ -373,6 +388,13 @@ public class BoxedVertical extends View{
         points = points < mMin ? mMin : points;
 
         updateProgress2(points);
+    }
+	
+	public void setValue3(int points) {
+        points = points > mMax ? mMax : points;
+        points = points < mMin ? mMin : points;
+
+        updateProgress3(points);
     }
 
     public int getValue() {
